@@ -49,11 +49,11 @@ function Cashier(name, productsDatabase) {
       totalPrice += ( order[key] * products[key] );
      }
     }
-     console.log(totalPrice);
+     console.log('Общая сумма покупки = ' ,totalPrice);
   }
 
   this.getCustomerMoney = function (customerMoney){
-    console.log('Сумма которая есть у клиента :', customerMoney);
+    console.log('Сумма которая есть у клиента =', customerMoney);
   }
 
   this.onSuccess = function () {
@@ -83,27 +83,25 @@ if (changeAmount > 0) {
   }
   this.reset = function (totalPrice, customerMoney, changeAmount) {
     
-    for (let i of totalPrice){
-      console.log(i);
-    }
-  
-    return console.log('After reset : ', 'totalPrice :', totalPrice, 'customerMoney :', customerMoney, 'changeAmount :', changeAmount);
-  }
-  
+   this.totalPrice = 0;
+   this.customerMoney = 0;
+   this.changeAmount = 0;
+    
+}
 };
 
 const mango = new Cashier('Mango', products);
 console.log(mango.name);
 console.log(mango.productsDatabase); // ссылка на базу данных продуктов (объект products)
-console.log(mango.totalPrice); // 0
-console.log(mango.customerMoney); // 0
-console.log(mango.changeAmount); // 0
+console.log('totalPrise : ' ,mango.totalPrice); // 0
+console.log('customerMoney :' ,mango.customerMoney); // 0
+console.log('changeAmount :' ,mango.changeAmount); // 0
 
 mango.greet(); // Здравствуйте, вас обслуживает Mango;
 mango.countTotalPrice(order);//
 mango.getCustomerMoney(300);
 const result = mango.countChange(300);
-console.log(result);
+
 if(result !== null) {
   // При успешном обслуживании вызываем метод onSuccess
  mango.onSuccess(); // Спасибо за покупку, ваша сдача 190
@@ -112,4 +110,6 @@ if(result !== null) {
  mango.onError(); // Очень жаль, вам не хватает денег на покупки
 };
 mango.reset();
-
+console.log('totalPrise : ' ,mango.totalPrice); // 0
+console.log('customerMoney :' ,mango.customerMoney); // 0
+console.log('changeAmount :' ,mango.changeAmount); // 0
