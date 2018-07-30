@@ -36,7 +36,8 @@ function Cashier(name, productsDatabase) {
   this.customerMoney = customerMoney;
   this.changeAmount = changeAmount;
   this.greet = function () {
-    console.log(`Здравствуйте, вас обслуживает ${this.name}`);
+   return (`Здравствуйте, вас обслуживает ${this.name}`);
+  
 
   }
   this.countTotalPrice = function (order) {
@@ -49,25 +50,25 @@ function Cashier(name, productsDatabase) {
         totalPrice += (order[key] * products[key]);
       }
     }
-    console.log('Общая сумма покупки = ', totalPrice);
+    return ('Общая сумма покупки = ', totalPrice);
   }
 
   this.getCustomerMoney = function (customerMoney) {
-    console.log('Сумма которая есть у клиента =', customerMoney);
+    return ('Сумма которая есть у клиента =', customerMoney);
   }
 
   this.onSuccess = function () {
-    if (changeAmount >= 0 ) {
-       console.log(`Спасибо за покупку, ваша сдача ${changeAmount}`);
+    if (changeAmount > 0) {
+      return (`Спасибо за покупку, ваша сдача ${changeAmount}`);
     }
-     else{ console.log(`Спасибо за покупку`);
-  }
+      return (`Спасибо за покупку`);
+    
 
   }
 
   this.onError = function () {
     if (customerMoney < totalPrice) {
-       console.log('Очень жаль, вам не хватает денег на покупки');
+      return ('Очень жаль, вам не хватает денег на покупки');
     }
 
   }
@@ -99,8 +100,8 @@ console.log('changeAmount :', mango.changeAmount); // 0
 
 mango.greet(); // Здравствуйте, вас обслуживает Mango;
 mango.countTotalPrice(order); //
-mango.getCustomerMoney(300);
-const result = mango.countChange(300);
+mango.getCustomerMoney(50);
+const result = mango.countChange(50);
 
 if (result !== null) {
   // При успешном обслуживании вызываем метод onSuccess
