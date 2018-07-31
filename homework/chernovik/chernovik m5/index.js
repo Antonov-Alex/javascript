@@ -586,7 +586,9 @@ const users = [{
 * повторяющихся скиллов и они должны быть отсортированы в алфавитном порядке
 */
 const getAllSkills = arr =>
- arr.sort((prev, next) => prev.skills != next.skills)
+ arr.sort((prev, next) => {prev.skills != next.skills
+
+})
 
 
 
