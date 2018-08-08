@@ -1,4 +1,8 @@
+
+
+
 'use strict';
+  // task 5/6
 
   /*
   Сеть фастфудов предлагает несколько видов гамбургеров.
@@ -45,7 +49,7 @@ class Hamburger {
      * @param {String} topping - Тип добавки
      */
     removeTopping(topping) {
-        return this._toppings = this._toppings.filter(el => el !== topping);
+        return this._toppings = this._toppings.filter(x => x !== topping);
     }
 
     /**
@@ -85,9 +89,9 @@ class Hamburger {
      */
 
     get calculatePrice() {
-        const priceArray = this._toppings.map(el => Hamburger.TOPPINGS[el].price);
-        priceArray.push(Hamburger.SIZES[this._size].price, Hamburger.STUFFINGS[this._stuffing].price);
-        let price = priceArray.reduce((acc, prices) => acc + prices, 0);
+        const priceArr = this._toppings.map(x => Hamburger.TOPPINGS[x].price);
+        priceArr.push(Hamburger.SIZES[this._size].price, Hamburger.STUFFINGS[this._stuffing].price);
+        let price = priceArr.reduce((acc, prices) => acc + prices, 0);
         return price;
     }
 
@@ -98,9 +102,9 @@ class Hamburger {
      * Попробуйте сделать это геттером чтобы можно было обращаться как obj.calories и нам вернет сумму.
      */
     get calculateCalories() {
-        const caloriesArray = this._toppings.map(el => Hamburger.TOPPINGS[el].calories);
-        caloriesArray.push(Hamburger.SIZES[this._size].calories, Hamburger.STUFFINGS[this._stuffing].calories);
-        let calories = caloriesArray.reduce((acc, calor) => acc + calor, 0);
+        const caloriesArr = this._toppings.map(x => Hamburger.TOPPINGS[x].calories);
+        caloriesArr.push(Hamburger.SIZES[this._size].calories, Hamburger.STUFFINGS[this._stuffing].calories);
+        let calories = caloriesArr.reduce((acc, itemcalories) => acc + itemcalories, 0);
         return calories;
     }
 }

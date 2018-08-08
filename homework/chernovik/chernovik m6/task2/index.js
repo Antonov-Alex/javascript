@@ -3,32 +3,59 @@
 
 'use strict';
 //=============================================================================================
-//           task2/5
-    /*
-  Напишите функию getPropValues(arr, prop), принимающую 
-  параметры arr - массив, и prop - имя ключа в объекте. 
+//           task2/6
+  /*
+  Напишите функцию-конструктор StringBuilder.
   
-  Функция должна возвращать массив всех значений этого ключа из arr.
+  На вход она получает один параметр string - строку.
   
-  PS: обязательно используйте функциональные методы массивов, никаких for!
+  Добавьте следующие методы в prototype функции-конструктора.
+  
+    - getValue() - выводит в консоль текущее значение поля value
+  
+    - append(str) - получает парметр str - строку и добавляет 
+      ее в конец значения поля value
+    
+    - prepend(str) - получает парметр str - строку и добавляет 
+      ее в начало значения поля value
+  
+    - pad(str) - получает парметр str - строку и добавляет 
+      ее в начало и в конец значения поля value
 */
 
-const guests = [
-  { name: "Mango", age: 20, isActive: true },
-  { name: "Poly", age: 18, isActive: false },
-  { name: "Ajax", age: 30, isActive: true },
-  { name: "Chelsey", age: 45, isActive: false }
-];
 
-const getPropValues = (arr, prop) => arr.map(el => el[prop]);
- 
+function StringBuilder(string = "") {
+  this.value = string;
+}
 
-// Вызовы функции для проверки
-console.log( getPropValues(guests, "name") ); // ['Mango', 'Poly', 'Ajax', 'Chelsey']
+StringBuilder.prototype.getValue = function(){
+  console.log('value :' , this.value);
+  };
+  StringBuilder.prototype.append = function(str){
+    this.value = this.value + str;
+    
+  }
+  StringBuilder.prototype.prepend = function(str){
+    this.value = str + this.value;
+    
+  }
+  StringBuilder.prototype.pad = function(str){
+    this.value = str + this.value + str;
 
-console.log( getPropValues(guests, "age") ); // [20, 18, 30, 45]
+  }
+  StringBuilder.prototype.showValue = function(){
+    console.log('value :' , this.value);
+  }
+const myString = new StringBuilder('.');
 
-console.log( getPropValues(guests, "isActive") ); // [true, false, true, false]
+myString.append('^'); 
+myString.showValue(); // '.^'
+
+ myString.prepend('^'); 
+ myString.showValue(); // '^.^'
+
+  myString.pad('='); 
+ myString.showValue(); // '=^.^='
       
     
       
