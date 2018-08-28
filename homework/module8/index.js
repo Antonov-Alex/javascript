@@ -23,12 +23,12 @@ const galleryItems = [{
   },
   {
     preview: 'img/smal5.jpg',
-    fullview: 'img/nature5.jpg.',
+    fullview: 'img/nature5.jpg',
     alt: "alt text 5"
   },
   {
     preview: 'img/smal6.jpeg',
-    fullview: 'img/nature6.jpeg.',
+    fullview: 'img/nature6.jpeg',
     alt: "alt text 6"
   },
   {
