@@ -3,12 +3,12 @@
 
 const galleryItems = [{
     preview: 'img/smal1.jpeg',
-    fullview: 'img/nature1.jpg',
+    fullview: 'img/nature1.jpeg',
     alt: "alt text 1"
   },
   {
     preview: 'img/smal2.jpeg',
-    fullview: 'img/nature2.jpg',
+    fullview: 'img/nature2.jpeg',
     alt: "alt text 2"
   },
   {
@@ -18,7 +18,7 @@ const galleryItems = [{
   },
   {
     preview: 'img/smal4.jpeg',
-    fullview: 'img/nature4.jpg',
+    fullview: 'img/nature4.jpeg',
     alt: "alt text 4"
   },
   {
@@ -28,7 +28,7 @@ const galleryItems = [{
   },
   {
     preview: 'img/smal6.jpeg',
-    fullview: 'img/nature6.jpg.',
+    fullview: 'img/nature6.jpeg.',
     alt: "alt text 6"
   },
   {
