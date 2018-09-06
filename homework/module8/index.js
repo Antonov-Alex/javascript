@@ -33,8 +33,9 @@ const galleryItems = [{
   },
   {
     preview: 'img/smal3.jpg',
-    fullview: 'img/nature3.jpg',
+    fullview: 'img/nature5.jpg',
     alt: "alt text 3"
+    
   },
 
 ];
