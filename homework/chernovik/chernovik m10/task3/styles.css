@@ -1,0 +1,10 @@
+li{
+  
+  margin-left: 20px;
+}
+
+ul{
+  background-color: red;
+ display: flex;
+ justify-content: space-between;
+}
