@@ -74,7 +74,7 @@ function  getAllUsers(){
       item.classList.add('item');
       item.setAttribute('id' , el.id);
       resList.append(item);
-      console.log(item.getAttribute('id'))
+      
         item.textContent = "ID: " + el.id +  "______" +"Name: " + el.name + '______' +'Age: ' +el.age;
     });
   })
@@ -161,7 +161,7 @@ function removeUser(id) {
   fetch(url + id, {
     method: 'DELETE'
   }).then((x) => {
-    console.log(x)
+   // console.log(x)
   })
 
   .catch(error => console.log('ERROR' + error));
@@ -170,23 +170,28 @@ function removeUser(id) {
 btnUpdate.addEventListener('click' , handleUpdateUser);
 function handleUpdateUser(evt){
   evt.preventDefault();
-   request.UserName = inputUdateName.value;
-   request.UserAge = inputUdateAge.value;
+   request.name = inputUdateName.value;
+   request.age = inputUdateAge.value;
    const value = inputForUdate.value;
   updateUser(value, request);
 }
-function updateUser(id, request){
+const user ={
+  name: null,
+  age: null,
+}
+function updateUser(id, user){
   
-fetch(url + id, {
+fetch(`${url} / ${id}`, {
     
     method: 'PUT',
-    name: JSON.stringify(request),
-    age: JSON.stringify(request),
+    name: JSON.stringify(user),
+    age: JSON.stringify(user),
     headers: {
       "Content-type": "application/json; charset=UTF-8"
     }
   })
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(x => console.log(x)
+)
   .catch(error => console.log('ERROR' + error));
 }
