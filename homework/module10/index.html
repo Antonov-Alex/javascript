@@ -11,29 +11,27 @@
 
 
 
-  <body class="page">
-    <!-- LOADER -->
-    <div class="loader-overlay">
-      <div class="loader">
-        <svg class="circular" viewBox="25 25 50 50">
-          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"
-          />
-        </svg>
+  <body>
+    <form class="search-form">
+      <button class="mdc-btn js-get-all_users" type="submit">Get All Users</button>
+      <button class="mdc-btn js-get-byId" type="submit">Get By ID</button>
+      <input type="text" placeholder="Введите ID" class="js-find-by-id">
+      <button class="mdc-btn js-add-user" type="submit">Add User</button>
+      <input type="text" placeholder="Введите Имя" class="js-add-name">
+      <input type="text" placeholder="Введите Возраст" class="js-add-age">
+      <button class="mdc-btn move js-del-user" type="submit">Delete User</button>
+      <input type="text" placeholder="Введите ID " class="js-delete move">
+      
+      <div class = "update">
+          <button class="mdc-btn  js-update-user" type="submit">Update User</button>
+      <input type="text" placeholder="Введите ID " class="js-id-for_udate move">
+      <input type="text" placeholder="Введите  Имя " class="js-update-name move">
+      <input type="text" placeholder="Введите Возраст " class="js-update-age move">  
       </div>
-    </div>
-  
-    <!-- SEARCH FORM -->
-    <form class="form">
-      <input type="text" class="input">
-      <button type=" submit " class="button">Submit</button>
     </form>
-  
-    <!-- IMAGE GRID -->
-    <main class="main">
-      <div class="grid"></div>
-      <button class="load-more button">Show more</button>
-    </main>
-
+   <div class = "result">
+  <h2>RESULT :</h2>
+   </div>
   <script src="index.js"></script>
 </body>
 
