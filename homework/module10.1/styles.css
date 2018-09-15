@@ -5,12 +5,11 @@ body {
 
 .container {
   padding-top: 20px;
-  width: 400px;
-  min-width: 480px;
   margin: auto;
 }
 
 .mdc-btn {
+  
   min-width: 88px;
   height: 36px;
   padding: 0 16px;
@@ -24,14 +23,16 @@ body {
   background-color: #00796b;
   cursor: pointer;
   box-shadow: 0 4px 4px 0 rgba(#414141, 0.3);
+  margin-left: 30px;
+ 
+  
  
 }
 
 .search-form {
-  display: flex;
-  justify-content: center;
+  
+  
   padding: 20px;
-  box-shadow: 0 0 2px 2px rgba(#414141, 0.2);
 }
 
 .search-form input {
@@ -42,6 +43,25 @@ body {
   color: #263238;
   font-size: 18px;
   background-color: transparent;
-  border-bottom: 2px solid #00796b;
- 
+  border: 1px solid #00796b;
+  
+}
+.result{
+  width: 700px;
+  border: 2px solid  #00796b;
+  background-color: rgb(238, 215, 215);
+  margin: 0 auto;
+  min-height: 300px;
+  margin-top: 70px;
+}
+h2{
+  color: #00796b;
+  text-align: center;
+  
+}
+.move{
+  margin-top: 50px;
+}
+li{
+  list-style-type: none;
 }

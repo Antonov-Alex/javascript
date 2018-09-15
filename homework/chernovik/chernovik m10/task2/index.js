@@ -60,7 +60,7 @@ fetch(url)
         const bio = document.createElement('p');
         bio.textContent = 'Bio:'+ data.bio;
         const publicRepos = document.createElement('p');
-        publicRepos.textContent = data.public_repos;
+        publicRepos.textContent = 'publicRepos :' +data.public_repos;
        result.append(UserName,avatar,bio,publicRepos)
         
        return UserName;

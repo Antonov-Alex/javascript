@@ -3,66 +3,82 @@
 
 'use strict';
 
-//-------------- "Task 4/9"-----------------------
+//-------------- "Task 4/10"-----------------------
 
 /*
-  Напишите скрипт работы магазина со складом товаров.
-  
-  Есть переменная goodsAmount хранящиая в себе
-  текущее количество единиц какого-то товара на складе.
-  
-  Напишите функцию processOrder(amount), получающую
-  кол-во товаров заказанных покупателем, и возвращающую промис.
-  
-  Для имитации проверки достаточного количества товаров
-  на складе используйте setTimeout с delay 500мс.
-  
-  Если на складе товаров больше либо равно заказанному
-  количеству, "верните" строку - "Ваш заказ готов!".
-  
-  В противном случае - "К сожалению на складе не достаточно товаров!".
-  
-  Если же пользователь ввел не число, то выдайте ошибку "Некоректный ввод!"  
+  Документация API: https://github.com/trostinsky/users-api#users-api
+
+  Просмотр всех записей: https://test-users-api.herokuapp.com/users/ 
+
+  Написать функцию getUserByName, которая используя REST сервис 
+  по адресу https://test-users-api.herokuapp.com/users/
+  посылает запрос с name введенным в input.
+ 
+  Результатом fetch будет ответ от сервера, 
+  вывести содержимое всего ответа (id, name, age) 
+  или 'Такого пользователя в списке нет!'.
 */
 
-const DELAY = 1000;
+const input = document.querySelector("input");
+const postBtn = document.querySelector(".js-post");
+const result = document.querySelector(".result");
 
-let goodsAmount = 100;
-//const x = "Ваш заказ готов!";
-//const err = "К сожалению на складе недостаточно товаров!";
-// Вызовы функции для проверки
-function processOrder(amount){
- 
- 
-  return new Promise((resolve, reject) => {
-    
-    setTimeout(() => {
-      if(goodsAmount = goodsAmount - amount){
-      resolve("Ваш заказ готов!");
-      }
-      if(goodsAmount = 0 ){
-        reject('К сожалению на складе недостаточно товаров!');
-      }
-      
-    }, 500);
-  });
+postBtn.addEventListener("click", getUserByName);
 
+function getUserByName(event) {
+  event.preventDefault();
+  const value = input.value;
+  console.log(value);
+  
+  search(value)
 }
 
- processOrder(50)
-.then(x => console.log(x)) // Ваш заказ готов!
-  .catch(err => console.log(err));
 
-processOrder(50)
-  .then(x => console.log(x)) // Ваш заказ готов!
-  .catch(err => console.log(err));
 
-processOrder(50)
-  .then(x => console.log(x)) // К сожалению на складе недостаточно товаров!
-  .catch(err => console.log(err));
+function search(evt){
+fetch("https://test-users-api.herokuapp.com/users/")
+.then(response => {
+  if(response.ok) return response.json();
 
-processOrder("qwe")
-  .then(x => console.log(x))
-  .catch(err => console.log(err)); // Некоректный ввод!
+  throw new Error(`Error while fetching: ${response.statusText}`);
+})
+.then(x => {
+  
+  const arr = x.data;
+  const txt = document.createElement('p');
+ result.append(txt);
+ 
+  const element = arr.find(el => el.name = evt)
+    
+      const elementJson = JSON.stringify(element);
+      txt.textContent = elementJson;
+  })
+    //return create(notFound);
+    
+    
+  
+  
+  
+    
+
+    //const info = 'Name :' + el.name + "  ID :" +el.id + "  Age :" + el.age;
+  
+
+  
+
+.catch(error => {
+});
+};
+
+function create(b){
+ const txt = document.createElement('p');
+ result.append(txt);
+ txt.textContent = b;
+
+};
+
+const notFound = 'Такого пользователя в списке нет!';
+
+
 
 
