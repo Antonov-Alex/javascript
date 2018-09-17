@@ -1,6 +1,3 @@
-
-
-
 'use strict';
 
 //-------------- "Модуль 10"-----------------------
@@ -41,157 +38,180 @@ const btnUpdate = document.querySelector('.js-update-user');
 const inputForUdate = document.querySelector('.js-id-for_udate');
 const inputUdateName = document.querySelector(".js-update-name");
 const inputUdateAge = document.querySelector(".js-update-age");
+const formSearch = document.querySelector('.search-form');
 
 result.append(resList);
 resList.classList.add('list');
 const request = {
-  
+
   UserID: null,
   UserName: null,
   UserAge: null,
 }
 
-console.log(btnUpdate, inputUdateName, inputForUdate );
-btnGetUsers.addEventListener('click' , handleGetUsersInfo);
+console.log(formSearch);
+btnGetUsers.addEventListener('click', handleGetUsersInfo);
 
-function handleGetUsersInfo(event){
+function handleGetUsersInfo(event) {
   event.preventDefault();
   console.log(btnGetUsers);
   getAllUsers();
+  formSearch.reset();
 };
 
-function  getAllUsers(){
-  
+function getAllUsers() {
+
   fetch(url)
-    .then(response =>{if(response.ok) return response.json();
-    throw new Error (`Error while fetching: ${response.statusText}`);})
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error(`Error while fetching: ${response.statusText}`);
+    })
 
     .then(x => {
       const arr = x.data;
       console.log(arr);
       const userInfo = arr.forEach(el => {
-      const item = document.createElement('li');
-      item.classList.add('item');
-      item.setAttribute('id' , el.id);
-      resList.append(item);
-      
-        item.textContent = "ID: " + el.id +  "______" +"Name: " + el.name + '______' +'Age: ' +el.age;
-    });
-  })
-    .catch(error => {console.log("ERROR:"  + error);})
+        const item = document.createElement('li');
+        item.classList.add('item');
+        item.setAttribute('id', el.id);
+        resList.append(item);
+
+        item.textContent = "ID: " + el.id + "______" + "Name: " + el.name + '______' + 'Age: ' + el.age;
+      });
+    })
+    .catch(error => {
+      console.log("ERROR:" + error);
+    })
 };
 
-btnGetById.addEventListener('click' , handleFindUserById);
+function createLiMarkup() {
+  return `
+    
+    <li class ="item"><p>${el.id}</p>
+    <p>${el.name}</p>
+    <p>${el.age}</p>
+    
+    </li>`;
+}
+btnGetById.addEventListener('click', handleFindUserById);
 
-function handleFindUserById(event){
+function handleFindUserById(event) {
   event.preventDefault();
   const value = input.value;
   getUserById(value);
+  formSearch.reset();
 }
 
-function getUserById(id){
+function getUserById(id) {
   fetch(url)
-  .then(response =>{if(response.ok) return response.json();
-  throw new Error (`Error while fetching: ${response.statusText}`);})
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error(`Error while fetching: ${response.statusText}`);
+    })
 
-  .then(x => {
-    const arr = x.data;
-    const txt = document.createElement('p');
-   result.append(txt);
-   const element = arr.find(el => el.id = id)
-    const elementJson = JSON.stringify(element);
-    txt.textContent = elementJson;
+    .then(x => {
+      const arr = x.data;
+      const txt = document.createElement('p');
+      result.append(txt);
+      const element = arr.find(el => el.id = id)
+      const elementJson = JSON.stringify(element);
+      txt.textContent = elementJson;
 
-  
-})
-  .catch(error => {console.log("ERROR:"  + error);})
+
+    })
+    .catch(error => {
+      console.log("ERROR:" + error);
+    })
 };
 
 btnAddUser.addEventListener('click', handleAddUser);
- function handleAddUser(evt){
+
+function handleAddUser(evt) {
   evt.preventDefault();
 
   request.UserName = inputName.value;
   request.UserAge = inputAge.value;
 
   if (request.UserAge === "" || request.UserName === "") {
-      DOMrefs.createNewUserForm.reset();
-      return alert("all fields should be filled properly");
+    DOMrefs.createNewUserForm.reset();
+    return alert("all fields should be filled properly");
   }
 
   addUser(request.UserName, request.UserAge);
-  
- }
+  formSearch.reset();
+}
 
-function addUser(nameToAdd, ageToAdd){
+function addUser(nameToAdd, ageToAdd) {
   const user = {
     name: nameToAdd,
     age: ageToAdd,
-}
+  }
 
-return fetch(url, {
+  return fetch(url, {
     method: 'POST',
     body: JSON.stringify(user),
     headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     }
-}).then(response => {
+  }).then(response => {
     return response.json();
-}).then(
+  }).then(
     newuser => {
-        return console.log(newuser);
+      return console.log(newuser);
     }
 
-).catch(error => {
+  ).catch(error => {
     alert(`User ID   "${error}"  is Invalid `);
     console.log("ERROR:" + error)
-})
+  })
 };
 
- btnDelete.addEventListener('click' , handleDelUser);
+btnDelete.addEventListener('click', handleDelUser);
 
-function  handleDelUser(evt){
+function handleDelUser(evt) {
   evt.preventDefault();
   const value = inputDel.value;
   removeUser(value);
- 
- };
-function removeUser(id) {
-  fetch(url + id, {
-    method: 'DELETE'
-  }).then((x) => {
-   // console.log(x)
-  })
 
-  .catch(error => console.log('ERROR' + error));
 };
 
-btnUpdate.addEventListener('click' , handleUpdateUser);
-function handleUpdateUser(evt){
-  evt.preventDefault();
-   request.name = inputUdateName.value;
-   request.age = inputUdateAge.value;
-   const value = inputForUdate.value;
-  updateUser(value, request);
-}
-const user ={
-  name: null,
-  age: null,
-}
-function updateUser(id, user){
-  
-fetch(`${url} / ${id}`, {
-    
-    method: 'PUT',
-    name: JSON.stringify(user),
-    age: JSON.stringify(user),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-  })
-  .then(response => response.json())
-  .then(x => console.log(x)
-)
-  .catch(error => console.log('ERROR' + error));
+function removeUser(id) {
+  fetch(url + id, {
+      method: 'DELETE'
+    }).then((x) => {
+      // console.log(x)
+    })
+
+    .catch(error => console.log('ERROR' + error));
+};
+
+
+btnUpdate.addEventListener('click', updateUser);
+
+function updateUser(event) {
+  event.preventDefault();
+
+  const id = inputForUdate.value;
+
+  const updatedUser = {
+    name: inputUdateName.value,
+    age: inputUdateAge.value
+  }
+
+  fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(updatedUser),
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) return response.json();
+    })
+    .then(() => alert("Success!"))
+    .catch(error => console.log(error));
+
+  formSearch.reset();
 }

@@ -13,24 +13,33 @@
 
   <body>
     <form class="search-form">
-      <button class="mdc-btn js-get-all_users" type="submit">Get All Users</button>
-      <button class="mdc-btn js-get-byId" type="submit">Get By ID</button>
-      <input type="text" placeholder="Введите ID" class="js-find-by-id">
+      <div class="get_all-users">
+      <button class="mdc-btn js-get-all_users move get" type="submit">Get All Users</button>
+      </div>
+      <div class="get_by-id">
+      <input type="text" placeholder="Введите ID" class="js-find-by-id move">
+      <button class="mdc-btn js-get-byId move" type="submit">Get By ID</button>
+      </div>
+      <div class="add_users">
+       <input type="text" placeholder="Введите Имя" class="js-add-name move">
+      <input type="text" placeholder="Введите Возраст" class="js-add-age move">
       <button class="mdc-btn js-add-user" type="submit">Add User</button>
-      <input type="text" placeholder="Введите Имя" class="js-add-name">
-      <input type="text" placeholder="Введите Возраст" class="js-add-age">
-      <button class="mdc-btn move js-del-user" type="submit">Delete User</button>
+      </div>
+      <div class="delete_user">
       <input type="text" placeholder="Введите ID " class="js-delete move">
+      <button class="mdc-btn move js-del-user" type="submit">Delete </button>
       
+      </div>
       <div class = "update">
-          <button class="mdc-btn  js-update-user" type="submit">Update User</button>
-      <input type="text" placeholder="Введите ID " class="js-id-for_udate move">
+          <input type="text" placeholder="Введите ID " class="js-id-for_udate move">
       <input type="text" placeholder="Введите  Имя " class="js-update-name move">
       <input type="text" placeholder="Введите Возраст " class="js-update-age move">  
+      <button class="mdc-btn  js-update-user" type="submit">Update</button>
       </div>
     </form>
    <div class = "result">
   <h2>RESULT :</h2>
+  
    </div>
   <script src="index.js"></script>
 </body>

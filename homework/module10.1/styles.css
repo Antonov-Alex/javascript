@@ -1,6 +1,7 @@
 body {
   font-family: "Roboto", sans-serif;
   background: #fff;
+  display: flex;
 }
 
 .container {
@@ -10,12 +11,12 @@ body {
 
 .mdc-btn {
   
-  min-width: 88px;
+  width: 120px;
   height: 36px;
   padding: 0 16px;
   border: 0;
   outline: 0;
-  border-radius: 2px;
+  border-radius: 5px;
   color: #fff;
   font-size: 14px;
   text-transform: uppercase;
@@ -47,12 +48,12 @@ body {
   
 }
 .result{
-  width: 700px;
+  width: 50%;
   border: 2px solid  #00796b;
   background-color: rgb(238, 215, 215);
   margin: 0 auto;
-  min-height: 300px;
-  margin-top: 70px;
+  min-height: 100px;
+  margin-top: 40px;
 }
 h2{
   color: #00796b;
@@ -60,8 +61,19 @@ h2{
   
 }
 .move{
-  margin-top: 50px;
+  margin-top: 20px;
 }
 li{
   list-style-type: none;
+}
+.search-form{
+  width: 30%;
+}
+div{
+  border: 1px solid #00796b;
+  margin-top: 20px;
+}
+.get{
+  display: block;
+  margin: 0 auto;
 }
