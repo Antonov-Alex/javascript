@@ -84,15 +84,7 @@ function getAllUsers() {
     })
 };
 
-function createLiMarkup() {
-  return `
-    
-    <li class ="item"><p>${el.id}</p>
-    <p>${el.name}</p>
-    <p>${el.age}</p>
-    
-    </li>`;
-}
+
 btnGetById.addEventListener('click', handleFindUserById);
 
 function handleFindUserById(event) {
