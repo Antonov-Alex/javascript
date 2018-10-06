@@ -1,0 +1,29 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Task-2/11</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:700i" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <div class="post">
+        <template id="post-card">
+        <h2 class="title">{{title}}</h2>
+        <p class="text">{{text}}</p>
+        {{#if isFav}}
+        <span class="fav-icon">
+          <img src="https://image.flaticon.com/icons/svg/290/290413.svg" alt="" class="star">
+        </span>
+          {{/if}}
+        </template>
+      </div>
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
