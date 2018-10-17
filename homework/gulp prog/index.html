@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Module-12</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+
+
+<body>
+  <section>
+    <form class="form">
+      <div class="field">
+        <input type="text" placeholder="" class="field-text">
+        <button class="field-button">Добавить</button>
+      </div>
+    </form>
+  </section>
+
+  <section>
+    <form class="result-form">
+ <div class="field ">
+        <p class="text">Result :</p>
+        <ul class="list">
+<li class="item">
+            <a href="" class="link "> EXAMPLE...</a>
+            <button class="button-del">Delete</button>
+          </li>
+          <template id="link-item">
+            <li class="item">
+              <a href="" class="link"> {{name}}</a>
+              <button class="button-del">Delete</button>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </form>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>

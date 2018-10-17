@@ -1,0 +1,16 @@
+{
+  "name": "module12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "gulp": "^3.9.1"
+  },
+  "scripts": {
+    "start": "babel "
+  },
+  "author": "",
+  "license": "ISC"
+}
